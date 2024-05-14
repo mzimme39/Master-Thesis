@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Labor-Experiment</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- <link rel="icon" href="favicon.ico" type="image/x-icon"> -->
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Willkommen zum Labor-Experiment</h1>
+        </div>
+        <div class="uni-logo">
+            <img src="UzK_Logo.jpg" alt="Logo der Universität">
+        </div>
+    </header>
+    <main>
+
+        <!-- <a href="#instruction-task8" onclick="directToTask5(); return false;">Direkt zu Aufgabe 5</a> -->
+
+        <section id="introduction">
+            <h2>Über das Experiment</h2>
+            <p>Dieses Online-Experiment ist Teil meiner Master Arbeit im Studiengang Business Analytics & Econometrics an der Universität zu Köln. Das Experiment untersucht, wie Computer-Mausbewegungen unter verschiedenen Testbedingungen variieren können.</p>
+            <p><strong>WICHTIG: Dieses Online-Experiment kann nur einer separaten Computermaus oder mit einem Laptop-integrierten Touchpad durchgeführt werden.</strong> Bitte unter keinen Umständen mit einem Handy oder Tablet teilnehmen.</p>
+            <h2>Aufbau des Experiments</h2>
+            <p>Das Experiment besteht aus drei Teilen.</p>
+            <p><strong>1. Entspannungsvideo:</strong> Das Experiment startet erst, nachdem du dir ein 30 sekündiges Video zum Entspannen angeguckt hast.</p>
+            <p><strong>2. Basisaufgaben:</strong> Die Aufgaben 1-4 sind relativ einfach. Lies dir alle Anleitungen sorgfältig durch, dann wirst du keine Probleme haben, die Aufgaben erfolgreich zu meistern.</p>
+            <p><strong>3. Stressaufgaben:</strong> In den Aufgaben 5-8 wird es anspruchsvoller. Lies auch hier alle Anleitungen sorgfältig durch, bevor du zur nächsten Aufgabe fortfährst.</p>
+            <p> Zu den meisten Aufgaben wirst du durch Buttons navigiert, es kann aber auch vorkommen, dass Aufgaben automatisch starten. Du kannst nicht zurück im Experiment, sondern immer nur zur nächsten Aufgabe. <strong>Schalte bitte auch deinen Ton an. Das Experiment wird ungefähr 10 Minuten dauern, bitte unterbrich es nicht.</strong></p>
+
+            <h2>Kontaktinformationen</h2>
+            <p>Bei Fragen zum Experiment kontaktiere mich gerne unter: <a href="mailto:mzimme39@smail.uni-koeln.de">mzimme39@smail.uni-koeln.de</a>.</p>
+            <button id="to-demographics">Zur nächsten Seite</button>
+        </section>
+
+        
+        <section id="demographics" class="hidden">
+            <h2>Demografische Angaben</h2>
+            <p>Bitte gib hier deine demografischen Informationen ein. Alle Daten bleiben anonym und werden vertraulich behandelt. Nachdem du alle demografischen Angaben ausgewählt hast, startet durch den Button "Experiment starten" automatisch das 30 sekündige Video zum Entspannen. <strong>Bitte bewege während des Videos deine Maus nicht.</strong></p>
+            <form id="demographics-form">
+                <label for="sex">Geschlecht:</label>
+                <select id="sex" name="sex" required>
+                    <option value="">Bitte wählen</option>
+                    <option value="Weiblich">Weiblich</option>
+                    <option value="Männlich">Männlich</option>
+                    <option value="Anderes">Anderes</option>
+                </select>
+
+                <label for="age">Alter:</label>
+                <select id="age" name="age" required>
+                    <option value="">Bitte wählen</option>
+                    <option value="18-25">18-25</option>
+                    <option value="26-35">26-35</option>
+                    <option value="36-45">36-45</option>
+                    <option value="46-55">46-55</option>
+                    <option value="56-65">56-65</option>
+                    <option value="66+">66+</option>
+                </select>
+        
+                <label for="education">Höchster Bildungsabschluss:</label>
+                <select id="education" name="education" required>
+                    <option value="">Bitte wählen</option>
+                    <option value="kein Abschluss">Kein Abschluss</option>
+                    <option value="Schulabschluss">Schulabschluss</option>
+                    <option value="Berufsausbildung">Berufsausbildung</option>
+                    <option value="Bachelor">Bachelor</option>
+                    <option value="Master">Master</option>
+                    <option value="Promotion">Promotion</option>
+                </select>
+        
+                <label for="employment">Berufliche Stellung:</label>
+                <select id="employment" name="employment" required>
+                    <option value="">Bitte wählen</option>
+                    <option value="Schüler/Student">Schüler/Student</option>
+                    <option value="Berufstätig">Berufstätig</option>
+                    <option value="Selbstständig">Selbstständig</option>
+                    <option value="Arbeitslos">Arbeitslos</option>
+                    <option value="Rentner">Rentner</option>
+                </select>
+
+                <label for="mouse">Maustyp:</label>
+                <select id="mouse" name="mouse" required>
+                    <option value="">Bitte wählen</option>
+                    <option value="Computermaus">Computermaus</option>
+                    <option value="Touchpad am Laptop">Touchpad am Laptop</option>
+                    <option value="Keine Maus oder Touchpad">Keine Maus oder Touchpad</option>
+                </select>
+            </form>
+            <button id="start-test" disabled>Experiment starten</button>
+        </section>        
+        <section id="video" class="hidden">
+            <h2>Entspannungsvideo</h2>
+            <iframe id="auto-video" width="1120" height="630" src="https://www.youtube.com/embed/g_3cIWgZ5C8?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="pointer-events: none;"></iframe>
+        </section>
+        <section id="instruction-task1" class="hidden">
+            <h2>Anleitung Aufgabe 1: Drag-and-Drop</h2>
+            <p>Die erste Aufgabe untersucht die Mausbewegung Drag-and-Drop. Du siehst gleich auf der linken Seite des Bildschirms 5 Farbfelder untereinander und auf der rechten Seite 5 Wortfelder untereinander. Deine Aufgabe ist es, die Farben den passenden Wörtern zuzuordnen, indem du das Farbfeld auf das Wortfeld ziehst und dann loslässt. Vorsicht: Sei präzise beim Loslassen der Farbfelder.</p>
+            <button id="start-task1">Aufgabe 1 starten</button>
+        </section>
+        <section id="task1" class="hidden">
+            <h2>Aufgabe 1: Farben den passenden Wörtern zuordnen</h2>
+            <div class="task-container">
+                <div id="color-options" class="color-container">
+                    <!-- Farbfelder -->
+                    <div class="color-box" style="background-color: red;" draggable="true" data-color="red"></div>
+                    <div class="color-box" style="background-color: blue;" draggable="true" data-color="blue"></div>
+                    <div class="color-box" style="background-color: green;" draggable="true" data-color="green"></div>
+                    <div class="color-box" style="background-color: yellow;" draggable="true" data-color="yellow"></div>
+                    <div class="color-box" style="background-color: purple;" draggable="true" data-color="purple"></div>
+                </div>
+                <div id="color-words" class="color-container">
+                    <!-- Farbwörter mit gestrichelten Linien -->
+                    <div class="word-box" data-word="yellow">Gelb</div>
+                    <div class="word-box" data-word="green">Grün</div>
+                    <div class="word-box" data-word="purple">Lila</div>
+                    <div class="word-box" data-word="red">Rot</div>
+                    <div class="word-box" data-word="blue">Blau</div>
+                </div>
+            </div>
+            <button id="submit-colors">Zur nächsten Aufgabe</button>
+        </section>        
+              
+        <section id="instruction-task2" class="hidden">
+            <h2>Anleitung Aufgabe 2: Point-and-Click</h2>
+            <p>Die zweite Aufgabe untersucht deinen Mausklick. Auf dem Bildschirm erscheint gleich ein Ziel. Deine Aufgabe ist es, so schnell wie möglich darauf zu klicken, sobald es erscheint. Dieser Vorgang wiederholt sich 10 Mal. Die Aufgabe ist beendet, sobald du alle 10 Durchgänge erledigt hast.</p>
+            <button id="start-task2">Aufgabe 2 starten</button>
+        </section>
+        <section id="task2" class="hidden">
+            <h2>Aufgabe 2: Point-and-Click</h2>
+            <div class="task-container-center">
+                <div id="remaining-targets2">Verbleibende Targets: 10 von 10</div>
+                <div id="task2-area" style="width: 400px; height: 400px; border: 2px solid black; margin: 0 auto;"></div>
+            </div>
+        </section>             
+        <section id="instruction-task3" class="hidden">
+            <h2>Anleitung Aufgabe 3: Tower of Hanoi</h2>
+            <p>Die dritte Aufgabe ist das Lösen des Spiels Türme von Hanoi mit 3 Scheiben. Das Spiel besteht aus drei gleich großen Türmen, auf die mehrere gelochte
+                Scheiben gelegt werden, alle verschieden groß. Zu Beginn liegen alle Scheiben auf dem linken Turm, der Größe nach geordnet, mit der größten Scheibe unten und der kleinsten oben. Ziel des Spiels ist es, den kompletten Scheiben-Turm von links nach ganz rechts zu versetzen.</p>
+            <p>Bei jedem Zug darf die oberste Scheibe eines beliebigen Stabes auf einen der beiden
+                anderen Türme gelegt werden, vorausgesetzt, dort liegt nicht schon eine kleinere Scheibe. <strong>Du darfst also keine größere Scheibe auf eine kleinere legen.</strong>
+                Folglich sind zu jedem Zeitpunkt des Spieles die Scheiben auf jedem Feld der Größe nach
+                geordnet.</p>
+            <button id="start-task3">Aufgabe 3 starten</button>
+        </section>   
+        <section id="task3" class="hidden">
+            <div class="task-header">
+                <h2 id="task3-title">Aufgabe 3: Tower of Hanoi</h2> <!-- Dynamischer Titel -->
+                <div id="task7-timer" class="hidden" style="color: red; text-align: right;">
+                    <span id="task7-timer-display">00:60</span>
+                </div>
+            </div>
+            <div class="container">
+                <div id="message"></div>
+                <div id="towers">
+                    <ul class="tower" data-tower="0"></ul>
+                    <ul class="tower" data-tower="1"></ul>
+                    <ul class="tower" data-tower="2"></ul>
+                </div>
+                <div id="buttons">
+                    <div class="restart">Neustart</div>
+                    <button id="to-task4" class="hidden">Zur nächsten Aufgabe</button> <!-- Button für Aufgabe 4 -->
+                    <button id="to-task8" class="hidden">Zur nächsten Aufgabe</button> <!-- Button für Aufgabe 5 -->
+                </div>
+            </div>
+        </section> 
+        <section id="instruction-task4" class="hidden">
+            <h2>Anleitung Aufgabe 4: Präzisionssteuerung</h2>
+            <p>In der letzten Aufgabe des ersten Teils sollst du zeichnen. Du siehst gleich erst einen horizontalen Balken, einen Kreis und ein Haus. Nach erfolgreichem Zeichnen des Objekts wirst du automatisch zum nächsten Objekt weitergeleitet. </p>
+            <p>1. Horizontale Linie: Deine Aufgabe ist es, vom Startpunkt links zum Endpunkt rechts zu zeichnen, ohne dabei den grauen Zielpfad nicht zu verlassen.</p>
+            <p>2. Kreis: Hier kannst du irgendwo in dem grauen Kreispfad mit der Zeichnung beginnen. Ziel ist es, einmal komplett den Kreis zu zeichnen, ohne dabei den grauen Zielpfad nicht zu verlassen. Dein Startpunkt der Zeichnung ist auch automatisch dann dein Endpunkt.</p>
+            <p>3. Haus: Diese Aufgabe läuft analog zum Kreis ab, nur dass du diesmal das Haus in dem grauen Zielpfad zeichnen sollst.</p>
+            <p><strong>Falls du den grauen Zielpfad verlässt oder die Zeichnung abbrichst, musst du wieder von vorne anfangen.</strong></p>
+            <button id="start-task4">Aufgabe 4 starten</button>
+        </section>   
+        <section id="task4" class="hidden">
+            <h2>Aufgabe 4: Präzisionssteuerung</h2>
+            <div id="task4-content">
+                <canvas id="drawing-canvas" width="600" height="300" style="border:1px solid #000;"></canvas>
+            </div>
+            <p id="task-message">Zeichne eine Linie vom Startpunkt zum Endpunkt, ohne die Grenzen zu verletzen.</p>
+            <div id="completion-message" class="hidden">
+                <p>Gut gemacht! Du hast alle drei Figuren erfolgreich gezeichnet. Du kannst jetzt den ersten Teil abschließen.</p>
+              </div>              
+            <button id="to-stress-survey-1" class="hidden">Ersten Teil abschließen</button>
+        </section> 
+        <section id="stress-survey-1" class="hidden">
+            <h2>Wie gestresst warst du während den Aufgaben 1 - 4?</h2>
+            <form id="stress-level-form-1">
+                <label>
+                    <input type="radio" name="stress-level" value="1" required>
+                    1 - Gar nicht gestresst
+                </label>
+                <label>
+                    <input type="radio" name="stress-level" value="2">
+                    2 - Eher nicht gestresst
+                </label>
+                <label>
+                    <input type="radio" name="stress-level" value="3">
+                    3 - Weder noch
+                </label>
+                <label>
+                    <input type="radio" name="stress-level" value="4">
+                    4 - Eher gestresst
+                </label>
+                <label>
+                    <input type="radio" name="stress-level" value="5">
+                    5 - Sehr gestresst
+                </label>
+                <button type="submit" id="to-task5">Zum zweiten Teil</button>
+            </form>
+        </section> 
+        <section id="instruction-task5" class="hidden">
+            <h2>Anleitung Aufgabe 5: Drag-and-Drop</h2>
+            <p>Nun fängt der zweite Teil des Experiments an. Die Aufgabentypen sind ähnlich wie die bisherigen Aufgaben.</p>
+            <p>In dieser Aufgabe wirst du gleich 5 verschiedene Matheaufgaben in Farbfeldern untereinander sehen. <strong>Deine Aufgabe ist es erst, dir die Farbe mit dem dazugehörigen Ergebnis der Matheaufgabe zu merken. Dafür hast du 15 Sekunden Zeit.</strong></p>
+            <p>Wenn die Zeit abgelaufen ist, hast du 12 Sekunden Zeit, das <strong>Farbfeld dem passendem Ergebnis zuzuordnen</strong>. Dies machst du durch Ziehen des Farbfeldes und Loslassen auf das entsprechende Ergebnisfeld. Viel Erfolg.</p>
+            <button id="start-pre-task5">Aufgabe 5 starten</button>
+        </section>
+        <section id="pre-task5" class="hidden">
+            <div class="task-header">
+                <h2>Aufgabe 5: Merke dir, welche Farbe zu welchem Ergebnis der Matheaufgabe gehört</h2>
+                <div id="pretask5-timer" style="color: red;">00:15</div> <!-- Timer-Element in Rot -->
+            </div>
+            <div class="task5-container">
+                <div id="color-options" class="color-container5">
+                    <div class="color-box5" style="background-color: red;">4 × 2</div>
+                    <div class="color-box5" style="background-color: blue;">9 - 4</div>
+                    <div class="color-box5" style="background-color: green;">3 + 3 + 3</div>
+                    <div class="color-box5 yellow-text" style="background-color: yellow;">6 x 4</div>
+                    <div class="color-box5" style="background-color: purple;">8 + 7</div>
+                </div>
+            </div>
+        </section>        
+        <section id="task5" class="hidden">
+            <div class="task-header">
+                <h2>Aufgabe 5: Verknüpfe die Farben mit den richtigen Ergebnissen</h2>
+                <div id="task5-timer" style="color: red;">00:12</div> <!-- Timer-Element in Rot -->
+            </div>
+            <div class="task-container">
+                <div id="task5-colors" class="drag-color-container">
+                    <!-- Farbfelder -->
+                    <div class="color-box" style="background-color: blue;" draggable="true" data-color="blue"></div>
+                    <div class="color-box" style="background-color: green;" draggable="true" data-color="green"></div>
+                    <div class="color-box" style="background-color: red;" draggable="true" data-color="red"></div>
+                    <div class="color-box" style="background-color: purple;" draggable="true" data-color="purple"></div>
+                    <div class="color-box" style="background-color: yellow;" draggable="true" data-color="yellow"></div>
+                </div>
+                <div id="task5-results" class="drop-results-container">
+                    <!-- Ergebnisfelder mit gestrichelten Linien -->
+                    <div class="result-box" data-result="15">15</div>
+                    <div class="result-box" data-result="24">24</div>
+                    <div class="result-box" data-result="5">5</div>
+                    <div class="result-box" data-result="9">9</div>
+                    <div class="result-box" data-result="8">8</div>
+                </div>
+            </div>
+        </section>    
+        <section id="instruction-task6" class="hidden">
+            <h2>Anleitung Aufgabe 6: Point-and-Click</h2>
+            <p>Auf dem Bildschirm erscheinen gleich immer jeweils 5 Farbboxen. Deine Aufgabe ist es, so schnell wie möglich auf die entsprechende Farbbox zu klicken, sobald es erscheint. <strong>Welches die richtige Farbbox von den 5 ist, sagt dir nur das Wort rechts daneben.</strong></p>
+            <p>Dieser Vorgang wiederholt sich 10 Mal. Die Aufgabe ist beendet, sobald du alle 10 Durchgänge erledigt hast. <strong>Für diese Aufgabe hast du maximal 15 Sekunden Zeit.</strong></p>
+            <button id="start-task6">Aufgabe 6 starten</button>
+        </section>        
+        <section id="task6" class="hidden">
+            <div class="task-header">
+                <h2>Aufgabe 6: Point-and-Click auf die richtige Farbe</h2>
+                <div id="timer">00:20</div>
+            </div>
+            <div class="task-container-center">
+                <div id="remaining-targets">Verbleibende Targets: 10 von 10</div>
+            </div>
+            <div class="task-container6">
+                <div id="task6-area" style="width: 400px; height: 400px; border: 2px solid black;"></div>
+                <div id="color-name" style="width: 200px; height: 50px; font-size: 24px; text-align: center; border: 1px solid black;">Farbe</div>
+            </div>
+        </section>           
+        <section id="instruction-task7" class="hidden">
+            <h2>Anleitung Aufgabe 7: Tower of Hanoi</h2>
+            <p>Die dritte Aufgabe ist das Lösen des Spiels Türme von Hanoi mit 4 Scheiben. Das Spiel besteht aus drei gleich großen Türmen, auf die mehrere gelochte
+                Scheiben gelegt werden, alle verschieden groß. Zu Beginn liegen alle Scheiben auf dem linken Turm, der Größe nach geordnet, mit der größten Scheibe unten und der kleinsten oben. Ziel des Spiels ist es, den kompletten Scheiben-Turm von links nach ganz rechts zu versetzen.</p>
+            <p>Bei jedem Zug darf die oberste Scheibe eines beliebigen Stabes auf einen der beiden
+                anderen Türme gelegt werden, vorausgesetzt, dort liegt nicht schon eine kleinere Scheibe. <strong>Du darfst also keine größere Scheibe auf eine kleinere legen.</strong>
+                Folglich sind zu jedem Zeitpunkt des Spieles die Scheiben auf jedem Feld der Größe nach
+                geordnet.</p>
+            <p><strong>Für das Lösen des Spiels hast du maximal 60 Sekunden Zeit.</strong></p>
+            <button id="start-task7">Aufgabe 7 starten</button>
+        </section> 
+        <section id="instruction-task8" class="hidden">
+            <h2>Anleitung Aufgabe 8: Präzisionssteuerung</h2>
+            <p>In der letzten Aufgabe des Experiments sollst du wieder zeichnen. Du siehst gleich erst einen horizontalen Balken, einen Kreis und ein Haus. Nach erfolgreichem Zeichnen des Objekts wirst du automatisch zum nächsten Objekt weitergeleitet. </p>
+            <p>1. Horizontale Linie: Deine Aufgabe ist es, vom Startpunkt links zum Endpunkt rechts zu zeichnen, ohne dabei den grauen Zielpfad nicht zu verlassen.</p>
+            <p>2. Kreis: Hier kannst du irgendwo in dem grauen Kreispfad mit der Zeichnung beginnen. Ziel ist es, einmal komplett den Kreis zu zeichnen, ohne dabei den grauen Zielpfad nicht zu verlassen. Dein Startpunkt der Zeichnung ist auch automatisch dann dein Endpunkt.</p>
+            <p>3. Haus: Diese Aufgabe läuft analog zum Kreis ab, nur dass du diesmal das Haus in dem grauen Zielpfad zeichnen sollst.</p>
+            <p><strong>Falls du den grauen Zielpfad verlässt oder die Zeichnung abbrichst, musst du wieder von vorne anfangen.</strong></p>            
+            <button id="start-task8">Aufgabe 8 starten</button>
+        </section>        
+        <section id="task8" class="hidden">
+            <h2>Aufgabe 8: Präzisionssteuerung</h2>
+            <div id="task8-content">
+                <canvas id="drawing-canvas8" width="600" height="300" style="border:1px solid #000;"></canvas>
+            </div>
+            <p id="task-message">Zeichne eine Linie vom Startpunkt zum Endpunkt, ohne die Grenzen zu verletzen.</p>
+            <div id="completion-message8" class="hidden">
+                <p>Gut gemacht! Du hast alle drei Figuren erfolgreich gezeichnet. Du kannst jetzt den zweiten Teil abschließen.</p>
+              </div>  
+            <button id="to-stress-survey-2" class="hidden">Test abschließen</button>
+        </section>         
+        <section id="stress-survey-2" class="hidden">
+            <h2>Wie gestresst warst du während den Aufgaben 5 - 8?</h2>
+            <form id="stress-level-form-2">
+                <label>
+                    <input type="radio" name="stress-level" value="1" required>
+                    1 - Gar nicht gestresst
+                </label>
+                <label>
+                    <input type="radio" name="stress-level" value="2">
+                    2 - Eher nicht gestresst
+                </label>
+                <label>
+                    <input type="radio" name="stress-level" value="3">
+                    3 - Weder noch
+                </label>
+                <label>
+                    <input type="radio" name="stress-level" value="4">
+                    4 - Eher gestresst
+                </label>
+                <label>
+                    <input type="radio" name="stress-level" value="5">
+                    5 - Sehr gestresst
+                </label>
+                <button type="submit" id="to-final-page">Test beenden</button>
+            </form>
+        </section>
+        <section id="final-page" class="hidden">
+            <h2>Ende des Experiments</h2>
+            <p>Das Experiment ist beendet. Vielen Dank für deine Teilnahme! Falls du noch Fragen zu meiner Studie hast, dann melde dich gerne unter <a href="mailto:mzimme39@smail.uni-koeln.de">mzimme39@smail.uni-koeln.de</a>.</p>   
+            <p>Du kannst die Webseite nun schließen.</p>      
+        </section>                                                                          
+    </main>
+    <script src="script.js"></script>
+    <script src="mouse-tracker.js" type="module"></script>
+
+    <script>
+    function directToTask5() {
+      // Verberge alle vorherigen Aufgaben und Anweisungen
+      const sections = document.querySelectorAll('section');
+      for (let section of sections) {
+        section.classList.add('hidden');
+      }
+  
+      // Zeige die Aufgabe 5 an
+      const task5 = document.getElementById('instruction-task8');
+      task5.classList.remove('hidden');
+    }
+  </script> 
+
+</body>
+</html>
+
+
+
+
+
+
