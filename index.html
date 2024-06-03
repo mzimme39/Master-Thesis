@@ -17,7 +17,7 @@
     </header>
     <main>
 
-        <a href="#instruction-task5" onclick="directToTask5(); return false;">Direkt zu Aufgabe 5</a> 
+        <!--<a href="#instruction-task3" onclick="directToTask5(); return false;">Direkt zu Aufgabe 5</a> -->
 
         <section id="introduction">
             <h2>Über das Experiment</h2>
@@ -219,7 +219,7 @@
             <h2>Anleitung Aufgabe 5</h2>
             <p>Nun fängt der zweite Teil des Experiments an. Die Aufgabentypen sind ähnlich wie die bisherigen Aufgaben.</p>
             <p>In dieser Aufgabe wirst du gleich 5 verschiedene Matheaufgaben in Farbfeldern untereinander sehen. <strong>Deine Aufgabe ist es erst, dir die Farbe mit dem dazugehörigen Ergebnis der Matheaufgabe zu merken. Dafür hast du 15 Sekunden Zeit.</strong></p>
-            <p>Wenn die Zeit abgelaufen ist, hast du 12 Sekunden Zeit, das <strong>Farbfeld dem passendem Ergebnis zuzuordnen</strong>. Dies machst du durch Ziehen des Farbfeldes und Loslassen auf das entsprechende Ergebnisfeld. Falls du denkst, dass du das Farbfeld auf das falsche Ergebnisfeld gezogen hast, kannst du es durch Klicken rückgängig machen. Viel Erfolg.</p>
+            <p>Wenn die Zeit abgelaufen ist, hast du 15 Sekunden Zeit, das <strong>Farbfeld dem passendem Ergebnis zuzuordnen</strong>. Dies machst du durch Ziehen des Farbfeldes und Loslassen auf das entsprechende Ergebnisfeld. Falls du denkst, dass du das Farbfeld auf das falsche Ergebnisfeld gezogen hast, kannst du es durch Klicken rückgängig machen. Viel Erfolg.</p>
             <button id="start-pre-task5">Aufgabe 5 starten</button>
         </section>
         <section id="pre-task5" class="hidden">
@@ -240,7 +240,7 @@
         <section id="task5" class="hidden">
             <div class="task-header">
                 <h2>Aufgabe 5: Verknüpfe die Farben mit den richtigen Ergebnissen</h2>
-                <div id="task5-timer" style="color: red;">00:12</div> <!-- Timer-Element in Rot -->
+                <div id="task5-timer" style="color: red;">00:15</div> <!-- Timer-Element in Rot -->
             </div>
             <div class="task-container">
                 <div id="task5-colors" class="drag-color-container">
@@ -342,7 +342,7 @@
     <script src="mouse-tracker.js" type="module"></script>
     <script src="script.js" type="module"></script>
 
-    <script>
+    <!--<script>
     function directToTask5() {
       // Verberge alle vorherigen Aufgaben und Anweisungen
       const sections = document.querySelectorAll('section');
@@ -351,14 +351,15 @@
       }
   
       // Zeige die Aufgabe 5 an
-      const task5 = document.getElementById('instruction-task5');
+      const task5 = document.getElementById('instruction-task3');
       task5.classList.remove('hidden');
     }
-  </script>
+  </script>-->
   
 
 </body>
 </html>
+
 
 
 
