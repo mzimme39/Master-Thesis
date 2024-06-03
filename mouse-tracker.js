@@ -202,3 +202,4 @@ document.getElementById('stress-level-form-2').addEventListener('submit', functi
     document.getElementById('stress-survey-2').classList.add('hidden');
     document.getElementById('final-page').classList.remove('hidden');
 });
+
