@@ -319,7 +319,7 @@ function updateTimerDisplay(timeLeft, timerElement, playSound = true) {
   }
 
   // Ändere die Textfarbe zu rot, wenn 5 Sekunden oder weniger übrig sind, sonst schwarz
-  if (timeLeft <= 5) {
+  if (timeLeft <= 10) {
       timerElement.style.color = 'red';
   } else {
       timerElement.style.color = 'black';
@@ -333,7 +333,7 @@ let preTask5TimerInterval; // Globale Variable für den Timer der Vorbereitungsa
 function startPreTask5Timer() {
     let timeLeft = 15; // Setze die Zeit auf 15 Sekunden
     let timerElement = document.getElementById('pretask5-timer'); // Nutze das richtige Timer-Element
-    updateTimerDisplay(timeLeft, timerElement, false);
+    updateTimerDisplay(timeLeft, timerElement, true);
 
     if (preTask5TimerInterval) {
         clearInterval(preTask5TimerInterval); // Stelle sicher, dass kein vorheriger Timer läuft
@@ -341,7 +341,7 @@ function startPreTask5Timer() {
 
     preTask5TimerInterval = setInterval(function() {
         timeLeft--;
-        updateTimerDisplay(timeLeft, timerElement, false);
+        updateTimerDisplay(timeLeft, timerElement, true);
         if (timeLeft <= 0) {
             clearInterval(preTask5TimerInterval);
             preTask5TimerInterval = null;
@@ -423,7 +423,7 @@ document.addEventListener('DOMContentLoaded', function() {
 let task5TimerInterval;
 
 function startTask5Timer() {
-  let timeLeft = 12;  // Setze die Zeit auf 12 Sekunden für die echte Aufgabe 5
+  let timeLeft = 15;  // Setze die Zeit auf 12 Sekunden für die echte Aufgabe 5
   let timerElement = document.getElementById('task5-timer');
 
   updateTimerDisplay(timeLeft, timerElement, true);  // Sicherstellen, dass playSound true ist
@@ -993,7 +993,7 @@ function startDrawingTask(level) {
     writeMouseData(userId, 'drag', x, y, Date.now(), setCurrentTask);
   
     if (level === 1) {
-      if (y < canvas.height / 2 - pathHeight / 2 || y > canvas.height / 2 + pathHeight / 2) {
+      if (y < canvas.height / 2 - pathHeight / 2 || y > canvas.height / 2 + pathHeight / 2 || x < 20 || x > canvas.width - 20) {
           drawing = false;
           ctx.closePath();
 
@@ -1148,14 +1148,14 @@ function isWithinHousePath(x, y, squareStartX, squareStartY, houseWidth, houseHe
 function drawPath(level) {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   if (level === 1) {
-      ctx.fillStyle = 'rgba(128, 128, 128, 0.5)';
+    ctx.fillStyle = 'rgba(128, 128, 128, 0.5)';
       ctx.fillRect(20, canvas.height / 2 - pathHeight / 2, canvas.width - 40, pathHeight);
       ctx.fillStyle = 'black';
       ctx.beginPath();
-      ctx.arc(20, canvas.height / 2, 5, 0, Math.PI * 2);
+      ctx.arc(25, canvas.height / 2, 5, 0, Math.PI * 2); // Verschiebe den linken Punkt etwas nach rechts
       ctx.fill();
       ctx.beginPath();
-      ctx.arc(canvas.width - 20, canvas.height / 2, 5, 0, Math.PI * 2);
+      ctx.arc(canvas.width - 25, canvas.height / 2, 5, 0, Math.PI * 2); // Verschiebe den rechten Punkt etwas nach links
       ctx.fill();
   } else if (level === 2) {
       const centerX = canvas.width / 2;
@@ -1171,7 +1171,7 @@ function drawPath(level) {
       // Schwarzer Punkt für Level 2
       ctx.fillStyle = 'black';
       ctx.beginPath();
-      const pointRadius = 5;
+      const pointRadius = 4; // Kleinere Größe für den schwarzen Punkt
       ctx.arc(centerX, centerY - strokeRadius + (pathHeight / 25), pointRadius, 0, Math.PI * 2);
       ctx.fill();
   } else if (level === 3) {
@@ -1199,10 +1199,12 @@ function drawPath(level) {
       // Schwarzer Punkt für Level 3
       ctx.fillStyle = 'black';
       ctx.beginPath();
-      ctx.arc(squareStartX + houseWidth / 2, squareStartY + houseHeight, 5, 0, Math.PI * 2);
+      const pointRadius = 4; // Kleinere Größe für den schwarzen Punkt
+      ctx.arc(squareStartX + houseWidth / 2, squareStartY + houseHeight, pointRadius, 0, Math.PI * 2);
       ctx.fill();
   }
 }
+
 
 
 
@@ -1286,7 +1288,7 @@ function startDrawingTask8(level) {
     writeMouseData(userId, 'drag', x, y, Date.now(), setCurrentTask);
 
     if (level === 1) {
-      if (y < canvas8.height / 2 - pathHeight / 2 || y > canvas8.height / 2 + pathHeight / 2) {
+      if (y < canvas8.height / 2 - pathHeight / 2 || y > canvas8.height / 2 + pathHeight / 2 || x < 20 || x > canvas8.width - 20) {
         drawing = false;
         ctx8.closePath();
 
@@ -1412,10 +1414,10 @@ function drawPath8(level) {
       ctx8.fillRect(20, canvas.height / 2 - pathHeight / 2, canvas.width - 40, pathHeight);
       ctx8.fillStyle = 'black';
       ctx8.beginPath();
-      ctx8.arc(20, canvas.height / 2, 5, 0, Math.PI * 2);
+      ctx8.arc(25, canvas.height / 2, 5, 0, Math.PI * 2); // Verschiebe den linken Punkt etwas nach rechts
       ctx8.fill();
       ctx8.beginPath();
-      ctx8.arc(canvas.width - 20, canvas.height / 2, 5, 0, Math.PI * 2);
+      ctx8.arc(canvas.width - 25, canvas.height / 2, 5, 0, Math.PI * 2); // Verschiebe den rechten Punkt etwas nach links
       ctx8.fill();
     } else if (level === 2) {
       // Setze den Mittelpunkt des Kreises
@@ -1433,7 +1435,7 @@ function drawPath8(level) {
       // Schwarzer Punkt für Level 2
       ctx8.fillStyle = 'black';
       ctx8.beginPath();
-      const pointRadius = 5;
+      const pointRadius = 4;
       ctx8.arc(centerX, centerY - strokeRadius + (pathHeight / 25), pointRadius, 0, Math.PI * 2);
       ctx8.fill();
     } if (level === 3) {
@@ -1471,7 +1473,8 @@ function drawPath8(level) {
         // Schwarzer Punkt für Level 3
         ctx8.fillStyle = 'black';
         ctx8.beginPath();
-        ctx8.arc(squareStartX + houseWidth / 2, squareStartY + houseHeight, 5, 0, Math.PI * 2);
+        const pointRadius = 4;
+        ctx8.arc(squareStartX + houseWidth / 2, squareStartY + houseHeight, pointRadius, 0, Math.PI * 2);
         ctx8.fill();
     }
     
