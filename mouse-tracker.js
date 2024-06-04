@@ -186,7 +186,7 @@ function autoStartAndProceedVideo() {
         videoFrame.src = ""; // Das Video wird gestoppt, indem die src auf eine leere Zeichenfolge gesetzt wird
         document.getElementById('video').classList.add('hidden');
         document.getElementById('instruction-task1').classList.remove('hidden');
-        currentTask = null; // Keine Aufgabe während der Instruktionen
+        setCurrentTask(null); // Keine Aufgabe während der Instruktionen
     }, 34000); // 34 Sekunden warten, um dem Video genug Zeit zum Abspielen zu geben
   }
 
