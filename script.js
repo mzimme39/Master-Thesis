@@ -586,7 +586,7 @@ function getRandomColor() {
 function startTask3() {
   document.getElementById('instruction-task3').classList.add('hidden');
   document.getElementById('task3').classList.remove('hidden');
-  document.getElementById('task3-title').textContent = 'Aufgabe 3: Tower of Hanoi';
+  document.getElementById('task3-title').textContent = 'Aufgabe 3: Türme von Hanoi';
   document.getElementById('task7-timer').classList.add('hidden'); // Verstecke den Timer für Aufgabe 3
   startTowersOfHanoi(3); // Starte das Spiel mit 3 Scheiben
 }
@@ -595,7 +595,7 @@ function startTask3() {
 function startTask7() {
   document.getElementById('instruction-task7').classList.add('hidden');
   document.getElementById('task3').classList.remove('hidden');
-  document.getElementById('task3-title').textContent = 'Aufgabe 7: Tower of Hanoi';
+  document.getElementById('task3-title').textContent = 'Aufgabe 7: Türme von Hanoi';
   document.getElementById('task7-timer').classList.remove('hidden'); // Zeige den Timer für Aufgabe 7
   startTowersOfHanoi(3); // Starte das Spiel mit 3 Scheiben für Aufgabe 7
   startTask7Timer(); // Starte den Timer für Aufgabe 7
@@ -765,9 +765,9 @@ class TowersOfHanoi {
       updateTimerDisplay(0, document.getElementById('task7-timer-display')); // Setze die Timer-Anzeige auf 0
     }
     document.getElementById('task3').classList.add('hidden'); // Verstecke das Spiel
-    if (document.getElementById('task3-title').textContent === 'Aufgabe 3: Tower of Hanoi') {
+    if (document.getElementById('task3-title').textContent === 'Aufgabe 3: Türme von Hanoi') {
       document.getElementById('to-task4').classList.remove('hidden');
-    } else if (document.getElementById('task3-title').textContent === 'Aufgabe 7: Tower of Hanoi') {
+    } else if (document.getElementById('task3-title').textContent === 'Aufgabe 7: Türme von Hanoi') {
       document.getElementById('to-task8').classList.remove('hidden');
     }
   }
@@ -1508,6 +1508,4 @@ function drawPath8(level) {
 }
 
 startDrawingTask8(1);  // Starte mit Level 1
-
-
 
