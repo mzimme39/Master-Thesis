@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('instruction-task3').classList.add('hidden');
     document.getElementById('task3').classList.remove('hidden');
     startTask3();
-    showTipButtonAfterDelay(45000); // 45000 milliseconds = 45 seconds
+    showTipButtonAfterDelay(60000); // 60000 milliseconds = 60 seconds
   });
 
   document.getElementById('start-task4').addEventListener('click', function () {
