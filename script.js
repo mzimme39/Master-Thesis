@@ -1097,7 +1097,7 @@ function startDrawingTask(level) {
 
     if (level === 1) {
         drawing = false;
-        const endCircleX = canvas.width - 20;
+        const endCircleX = canvas.width - 25;
         const endCircleY = canvas.height / 2;
         const endCircleRadius = 5;
     
@@ -1385,7 +1385,7 @@ function startDrawingTask8(level) {
 
     if (level === 1) {
       drawing = false;
-      const endCircleX = canvas8.width - 20;
+      const endCircleX = canvas8.width - 25;
       const endCircleY = canvas8.height / 2;
       const endCircleRadius = 5;
 
